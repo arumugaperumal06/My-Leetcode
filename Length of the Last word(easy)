@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    int lengthOfLastWord(string s) {
+        int n = s.length() - 1;
+        int count = 0;
+        while (n >= 0 && s[n] == ' ')
+            n--;
+
+        while (n >= 0 && s[n] != ' ') {
+            count++;
+            n--;
+        }
+
+        return count;
+    }
+};
+
+int main() {
+    Solution sol;
+    string input;
+
+    // Prompt the user
+    cout << "Enter a string: ";
+    getline(cin, input); // read full line including spaces
+
+    int result = sol.lengthOfLastWord(input);
+
+    cout << "Length of last word: " << result << endl;
+
+    return 0;
+}
